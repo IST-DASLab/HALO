@@ -1,0 +1,9 @@
+[submodule "gemm-fp8"]
+	path = gemm-fp8
+	url = https://github.com/IST-DASLab/gemm-fp8.git
+[submodule "gemm-int8"]
+	path = gemm-int8
+	url = https://github.com/IST-DASLab/gemm-int8.git
+[submodule "third-party/cutlass"]
+	path = third-party/cutlass
+	url = https://github.com/NVIDIA/cutlass.git

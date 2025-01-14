@@ -1,0 +1,16 @@
+llm-foundry==0.8.0
+lm_eval==0.4.2
+ml_collections
+bitsandbytes
+seaborn
+fire
+jupyterlab
+pandas
+numpy
+transformers
+accelerate
+ipython
+ipywidgets
+wandb
+transformers~=4.47.1
+accelerate~=1.2.1

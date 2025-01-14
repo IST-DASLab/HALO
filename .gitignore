@@ -1,0 +1,16 @@
+*.cmake
+*.in
+*.ninja*
+*.o
+*.out
+*.log
+CMakeFiles/*
+*.pyc
+*.so
+*.egg-info/*
+.vscode/
+Makefile
+*CMakeCache*
+core.*
+output_*
+scripts/wandb
