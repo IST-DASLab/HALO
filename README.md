@@ -25,14 +25,10 @@ conda activate halo
 
 # Install the requirements
 source install.sh
-
-# Set the environment variables
-cd gemm-int8 && export GEMM_INT8_PATH=$(pwd) && cd ..
-cd gemm-fp8 && export GEMM_FP8_PATH=$(pwd) && cd ..
 ```
 
 ## Training 👨‍🏫
-First, make sure the environment variables `GEMM_INT8_PATH` and `GEMM_FP8_PATH` point to the `gemm-int8` and `gemm-fp8` directories (like above). To fine-tune a Llama-3-8B model, you can run:
+To fine-tune a Llama-3-8B model, you can run:
 ```bash
 cd scripts
 CUDA_VISIBLE_DEVICES=0,1,2,3 bash train_halo.sh DATASET=<dataset> LR=<lr> KERNEL_TYPE=<kernel_type>
@@ -47,7 +43,7 @@ You can add `_qfsdp` to enable HQ-FSDP, for example: `halo0_fp8_qfsdp`. Other co
 
 
 ## Benchmarks 📊
-First, make sure the environment variables `GEMM_INT8_PATH` and `GEMM_FP8_PATH` point to the `gemm-int8` and `gemm-fp8` directories (like the Installation section above). The benchmark files are located in the `tests` directory:
+The benchmark files are located in the `tests` directory:
 ```bash
 cd tests
 ```
@@ -55,9 +51,8 @@ cd tests
 ### Linear Module
 You can run the single layer benchmarks using the following command:
 ```bash
-CUDA_VISIBLE_DEVICES=0 python linear_module_benchmark.py --kernels base switchback halo2_int8 halo1_fp8 halo0_fp8 halo1_fp8
+CUDA_VISIBLE_DEVICES=0 python linear_module_benchmark.py --kernels base switchback jetfire halo2_int8 halo1_fp8 halo0_fp8 halo1_fp8
 ```
-you can also add `jetfire` to the list of kernels, but for that you have to install it (see the end of the Installation section above).
 
 ### Per-Block Benchmarks
 To run the single-gpu block-level benchmarks, run:
