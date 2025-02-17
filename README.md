@@ -1,6 +1,10 @@
 # 😇 HALO: Hadamard-Assisted Lower-Precision Optimization for LLMs 🚀
 
+[![arXiv](https://img.shields.io/badge/arXiv-2501.02625-b31b1b.svg)](https://arxiv.org/abs/2501.02625)
+
 __HALO__ is a novel quantization-aware training method for fine-tuning Large Language Models (LLMs) with low-precision matrix multiplications. It integrates **Hadamard transformations** to mitigate outliers, enabling accurate **INT8** and **FP6** fine-tuning while maintaining compute efficiency. HALO achieves up to **1.41×** speedup over full-precision fine-tuning while preserving accuracy, supporting both full and parameter-efficient fine-tuning (PEFT). 
+
+<img width="700" alt="image" src="./data/HALO-illustration.jpeg" />
 
 __HALO__ is implemented with efficient CUDA kernels and integrates seamlessly with **Fully Sharded Data Parallel (FSDP)** for low-precision communication, making it ideal for large-scale distributed training. 💡
 
@@ -17,12 +21,15 @@ git submodule update --init --recursive
 
 Create a new environment (`python=3.10` is tested). Our code currently supports CUDA >=12.4, but using older CUDA versions should be possible by disabling some of the CUDA kernels.
 
-Then run the following commands in order:
 ```bash
 # Create an environment, with whatever method you want
 conda create -n halo python=3.10
 conda activate halo
+```
 
+Then run the following commands in order:
+
+```bash
 # Install the requirements
 source install.sh
 ```
